@@ -10,8 +10,11 @@ Wanderlust is a full-stack travel listing application where users can explore tr
 - ➕ Create, update, and delete listings
 - 💬 Add and delete reviews
 - 🗺️ View detailed destination info
-- ⚙️ Error handling and middleware
-- 📱 Responsive front-end (Bootstrap)
+- 🔐 Login/Signup system with Passport.js
+- 🛡️ Route protection with custom middleware
+- 👤 Ownership-based permissions for listings
+- ⚙️ Centralized error handling
+- 📱 Responsive front-end using Bootstrap
 
 ---
 
@@ -21,7 +24,8 @@ Wanderlust is a full-stack travel listing application where users can explore tr
 - **Backend**: Node.js, Express.js
 - **Database**: MongoDB, Mongoose
 - **Templating**: EJS
-- **Others**: Express Router, Custom Error Handling
+- **Authentication**: Passport, Passport-Local, Passport-Local-Mongoose
+- **Utilities**: Express Router, Custom Middleware, Session Handling
 
 ---
 
@@ -32,12 +36,37 @@ User authentication is implemented using:
 - `passport` – for managing authentication strategies
 - `passport-local` – for username/password-based login
 - `passport-local-mongoose` – to simplify integration with Mongoose
-- Session management for persistent login
-- Input validation and error handling
+- Session-based login with persistent sessions
+- Input validation, flash messaging, and centralized error handling
 
 Registered users can:
+
 - Sign up and log in securely
-- Create, edit, and delete listings (with ownership)
-- Leave reviews
+- Access protected routes (e.g., create/edit listings)
+- Only modify their own listings
+- Leave and delete their own reviews
+
+---
+
+## 🧩 Middleware
+
+The app uses custom middleware to:
+
+- Restrict access to protected routes
+- Validate user permissions (e.g., ownership checks)
+- Handle flash messages and redirect logic
+- Centralize error responses (`ExpressError.js`)
+
+---
+
+## 📌 Changelog
+
+### 🗓️ July 23, 2025
+
+- 🔐 Integrated login and signup pages with Passport.js
+- ➕ Added `middleware.js` for route protection and auth checks
+- 🔄 Updated routes (`listing.js`, `user.js`) to enforce authentication
+- 🧭 Enhanced `navbar.ejs` to reflect login/logout status dynamically
+- ⚙️ Configured global middleware and session handling in `app.js`
 
 ---
