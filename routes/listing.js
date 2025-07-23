@@ -4,6 +4,7 @@ const { listingSchema } = require("../schema.js");
 const Listing = require("../models/listing.js");
 const wrapAsync = require("../utils/wrapAsync.js");
 const ExpressError = require("../utils/ExpressError.js");
+const {isLoggedIn} = require("../middleware.js");
 
 
 // function for schmea validation
@@ -29,13 +30,17 @@ router.get("/",
 
 // we have to place new route above of show route because of dynamic route(show route)
 // 3.1: new route: render form 
-router.get("/new", (req, res) => {
-    res.render("./listings/new.ejs");
-});
+router.get("/new",
+    isLoggedIn,
+    (req, res) => {
+        res.render("./listings/new.ejs");
+    }
+);
 
 // 3.2: create route: store details in DB
 router.post(
     "/",
+    isLoggedIn,
     validateListing,
     wrapAsync(async (req, res, next) => {
         let listing = req.body.listing;
@@ -61,6 +66,7 @@ router.get("/:id",
 
 // 4.1: edit route: render form for edit details
 router.get("/:id/edit",
+    isLoggedIn,
     wrapAsync(async (req, res) => {
         let { id } = req.params;
         const listing = await Listing.findById(id);
@@ -74,6 +80,7 @@ router.get("/:id/edit",
 // 4.2: update route: PUT request to store updated data in DB(model/collections);
 router.put(
     "/:id",
+    isLoggedIn,
     validateListing,
     wrapAsync(async (req, res) => {
         let { id } = req.params;
@@ -85,6 +92,7 @@ router.put(
 
 // 5: delete route to delete data using specific id
 router.delete("/:id",
+    isLoggedIn,
     wrapAsync(async (req, res) => {
         let { id } = req.params;
         let deletedListing = await Listing.findByIdAndDelete(id);
