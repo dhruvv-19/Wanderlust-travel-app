@@ -58,15 +58,3 @@ The app uses custom middleware to:
 - Centralize error responses (`ExpressError.js`)
 
 ---
-
-## 📌 Changelog
-
-### 🗓️ July 23, 2025
-
-- 🔐 Integrated login and signup pages with Passport.js
-- ➕ Added `middleware.js` for route protection and auth checks
-- 🔄 Updated routes (`listing.js`, `user.js`) to enforce authentication
-- 🧭 Enhanced `navbar.ejs` to reflect login/logout status dynamically
-- ⚙️ Configured global middleware and session handling in `app.js`
-
----
