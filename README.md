@@ -11,8 +11,9 @@ Wanderlust is a full-stack travel listing application where users can explore tr
 - 💬 Add and delete reviews
 - 🗺️ View detailed destination info
 - 🔐 Login/Signup system with Passport.js
+- 🛡️ Authorization for listings and reviews using custom middleware
+- 👤 Ownership-based access control
 - 🛡️ Route protection with custom middleware
-- 👤 Ownership-based permissions for listings
 - ⚙️ Centralized error handling
 - 📱 Responsive front-end using Bootstrap
 
@@ -48,12 +49,20 @@ Registered users can:
 
 ---
 
+### 🔒 Authorization for Listings & Reviews
+
+- Only logged-in users can create listings and reviews
+- Users can **edit/delete only their own listings and reviews**
+- Custom middleware ensures ownership-based protection
+
+---
+
 ## 🧩 Middleware
 
 The app uses custom middleware to:
 
 - Restrict access to protected routes
-- Validate user permissions (e.g., ownership checks)
+- Verify ownership for listings and reviews
 - Handle flash messages and redirect logic
 - Centralize error responses (`ExpressError.js`)
 
