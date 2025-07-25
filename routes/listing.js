@@ -1,102 +1,41 @@
 const express = require("express");
 const router = express.Router();
-const Listing = require("../models/listing.js");
 const wrapAsync = require("../utils/wrapAsync.js");
-const {isLoggedIn, isOwner, validateListing} = require("../middleware.js");
+const { isLoggedIn, isOwner, validateListing } = require("../middleware.js");
+const listingController = require("../controllers/listings.js");
 
+// index and create routes
+router.route("/")
+    .get(wrapAsync(listingController.index)) // index route
+    .post(
+        isLoggedIn,
+        validateListing,
+        wrapAsync(listingController.createNewListing) // create route
+    );
 
+// render form for creating new listing
+router.get("/new", isLoggedIn, listingController.renderNewForm);
 
-// 1: index route => return all listings
-router.get("/",
-    wrapAsync(async (req, res) => {
-        const allListings = await Listing.find({}); //all listings(data)
-        res.render("./listings/index.ejs", { allListings });
-    }));
+// show/edit/update/delete routes grouped by ID
+router.route("/:id")
+    .get(wrapAsync(listingController.showListing)) // show route
+    .put(
+        isLoggedIn,
+        isOwner,
+        validateListing,
+        wrapAsync(listingController.updateListing) // update route
+    )
+    .delete(
+        isLoggedIn,
+        isOwner,
+        wrapAsync(listingController.deleteListing) // delete route
+    );
 
-
-// we have to place new route above of show route because of dynamic route(show route)
-// 3.1: new route: render form 
-router.get("/new",
-    isLoggedIn,
-    (req, res) => {
-        res.render("./listings/new.ejs");
-    }
-);
-
-// 3.2: create route: store details in DB
-router.post(
-    "/",
-    isLoggedIn,
-    validateListing,
-    wrapAsync(async (req, res, next) => {
-        let listing = req.body.listing;
-        const newListing = new Listing(listing);
-        newListing.owner = req.user._id;
-        await newListing.save();
-        req.flash("success", "New Listing Created!");
-        res.redirect("/listings");
-    })
-);
-
-
-// 2: show route for displaying specific data using id
-router.get("/:id",
-    wrapAsync(async (req, res) => {
-        let { id } = req.params;
-        const listing = await Listing.findById(id)
-            .populate({
-                path: "reviews",
-                populate: {
-                    path: "createdBy",
-                },
-            })
-            .populate("owner");
-        if(!listing){
-            req.flash("error", "Listing you requested does not exist");
-            return res.redirect("/listings");
-        }
-        res.render("./listings/show.ejs", { listing });
-    }));
-
-// 4.1: edit route: render form for edit details
+// edit form route
 router.get("/:id/edit",
     isLoggedIn,
     isOwner,
-    wrapAsync(async (req, res) => {
-        let { id } = req.params;
-        const listing = await Listing.findById(id);
-        if(!listing){
-            req.flash("error", "Listing you requested does not exist");
-            return res.redirect("/listings");
-        }
-        res.render("./listings/edit.ejs", { listing });
-    }));
-
-// 4.2: update route: PUT request to store updated data in DB(model/collections);
-router.put(
-    "/:id",
-    isLoggedIn,
-    isOwner,
-    validateListing,
-    wrapAsync(async (req, res) => {
-        let { id } = req.params;
-        await Listing.findByIdAndUpdate(id, { ...req.body.listing });
-        req.flash("success", "Listing Updated!");
-        res.redirect(`/listings/${id}`);
-    }));
-
-
-// 5: delete route to delete data using specific id
-router.delete("/:id",
-    isLoggedIn,
-    isOwner,
-    wrapAsync(async (req, res) => {
-        let { id } = req.params;
-        let deletedListing = await Listing.findByIdAndDelete(id);
-        console.log(deletedListing);
-        req.flash("success", "Listing Deleted!");
-        res.redirect("/listings");
-    }));
-
+    wrapAsync(listingController.renderEditFrom)
+);
 
 module.exports = router;
