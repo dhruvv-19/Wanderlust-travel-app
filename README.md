@@ -26,7 +26,7 @@ Wanderlust is a full-stack travel listing application where users can explore tr
 - **Database**: MongoDB, Mongoose
 - **Templating**: EJS
 - **Authentication**: Passport, Passport-Local, Passport-Local-Mongoose
-- **Utilities**: Express Router, Custom Middleware, Session Handling
+- **Utilities**: MVC Architecture, Express Router with `router.route()`, Custom Middleware, Session Handling
 
 ---
 
