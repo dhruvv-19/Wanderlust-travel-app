@@ -19,7 +19,6 @@ const initDB = async () => {
         // Transform image object into image URL string
         const listings = initData.data.map(listing => ({
             ...listing,
-            image: listing.image?.url || "",  // Use URL if available, fallback to ""
             owner: "6881d1c92a9c1f99dcf6b908", // Add static owner ID
         }));
 
