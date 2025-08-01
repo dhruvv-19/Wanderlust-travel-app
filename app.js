@@ -1,3 +1,7 @@
+if (process.env.NODE_ENC != "production") {
+    require('dotenv').config();
+};
+
 const express = require("express");
 const app = express();
 const mongoose = require("mongoose");
@@ -10,7 +14,6 @@ const flash = require("connect-flash");
 const passport = require("passport");
 const LocalStretagy = require("passport-local");
 const User = require("./models/user.js");
-
 
 
 // routes
@@ -91,8 +94,6 @@ app.get("/", (req, res) => {
 app.use("/listings", listingRouter);
 app.use("/listings/:id/reviews", reviewRouter);
 app.use("/", userRouter);
-
-
 
 
 // middlewares for errors
