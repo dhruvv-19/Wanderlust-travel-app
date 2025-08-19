@@ -11,6 +11,7 @@ Wanderlust is a full-stack travel listing application where users can explore tr
 - 💬 Add and delete reviews with star ratings
 - 🗺️ View detailed destination info
 - 🖼️ Upload and display images using Cloudinary
+- 🗺️ Interactive maps with Mapbox integration
 - 🔐 Login/Signup system with Passport.js
 - 🛡️ Authorization for listings and reviews using custom middleware
 - 👤 Ownership-based access control
@@ -29,6 +30,7 @@ Wanderlust is a full-stack travel listing application where users can explore tr
 - **Authentication**: Passport, Passport-Local, Passport-Local-Mongoose
 - **Utilities**: MVC Architecture, Express Router with `router.route()`, Custom Middleware, Session Handling, Flash Messages
 - **File Upload & Hosting**: Multer, Cloudinary, Cloudinary Storage
+- **Maps & Geocoding**: Mapbox GL JS, Mapbox Geocoding API
 
 ---
 
@@ -76,5 +78,15 @@ The app uses custom middleware to:
 - Used `cloudinary` for image storage and secure delivery
 - Images are displayed via hosted URLs
 - Users can upload images while creating or editing listings
+
+---
+
+## 🗺️ Maps & Geocoding
+
+- Integrated **Mapbox** for interactive maps
+- Forward geocoding to convert location names into coordinates
+- Store location geometry in MongoDB for each listing
+- Display maps with marker on listing show pages
+- Responsive map styling for a better user experience
 
 ---
