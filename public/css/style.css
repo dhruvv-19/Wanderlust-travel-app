@@ -1,32 +1,33 @@
 /* body */
-body{
+body {
     font-family: "Plus Jakarta Sans", sans-serif !important;
     display: flex;
     flex-direction: column;
     min-height: 100vh;
 }
 
-.container{
+.container {
     flex: 1;
 }
 
 /* navbar */
-.navbar{
+.navbar {
     height: 5rem;
     background-color: white;
 }
 
-.fa-compass{
+.fa-compass {
     color: #fe424d;
     font-size: 2rem;
 }
 
-.nav-link{
-    color: #222222 !important; /* it is used to override bootstrap styling */
+.nav-link {
+    color: #222222 !important;
+    /* it is used to override bootstrap styling */
 }
 
 /* footer */
-.f-info{
+.f-info {
     text-align: center;
     height: 8rem;
     background-color: #ebebeb;
@@ -38,76 +39,82 @@ body{
 
 .f-info-links,
 .f-info-social-media,
-.f-info-brand{
+.f-info-brand {
     width: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
-.f-info-social-media i{
+.f-info-social-media i {
     font-size: 1.3rem;
     margin-right: 1rem;
 }
 
-.f-info-links a{
+.f-info-links a {
     text-decoration: none;
     color: #222222;
 }
 
-.f-info-links a:hover{
+.f-info-links a:hover {
     text-decoration: underline;
 }
 
 
 /* all listings (cards) */
-.listing-card{
+.listing-card {
     border: none !important;
     margin-bottom: 2rem;
 }
 
-.card-img-top{
+.card-img-top {
     border-radius: 1rem !important;
     width: 100% !important;
     object-fit: cover !important;
 }
 
-.card-body{
+.card-body {
     padding: 0 !important;
 }
 
-.card-text p{
+.card-text p {
     font-weight: 400 !important;
 }
 
 /* card effect */
-.card-img-overlay{
+.card-img-overlay {
     opacity: 0;
 }
 
-.card-img-overlay:hover{
+.card-img-overlay:hover {
     opacity: 0.2;
     background-color: white;
 }
 
 /* add listing  */
 .add-btn,
-.edit-btn{
+.edit-btn {
     background-color: #fe424d !important;
     border: none !important;
 }
 
 
 /* show page */
-.show-img{
+.show-img {
     height: 45vh;
 }
 
-.btns{
+.btns {
     display: flex;
 }
 
-.show-card{
+.show-card {
     padding-left: 0;
     padding-right: 0;
+}
+
+/* map */
+#map {
+    height: 400px;
+    width: 80vh;
 }
