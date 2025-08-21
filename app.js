@@ -84,12 +84,6 @@ async function main() {
 }
 
 
-
-app.get("/", (req, res) => {
-    res.send("I'm home page");
-});
-
-
 // using router
 app.use("/listings", listingRouter);
 app.use("/listings/:id/reviews", reviewRouter);
