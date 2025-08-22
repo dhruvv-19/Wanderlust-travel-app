@@ -14,6 +14,7 @@ const flash = require("connect-flash");
 const passport = require("passport");
 const LocalStretagy = require("passport-local");
 const User = require("./models/user.js");
+const searchRouter = require("./routes/search.js");
 
 
 // routes
@@ -88,6 +89,7 @@ async function main() {
 app.use("/listings", listingRouter);
 app.use("/listings/:id/reviews", reviewRouter);
 app.use("/", userRouter);
+app.use("/search", searchRouter);
 
 
 // middlewares for errors
