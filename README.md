@@ -6,18 +6,21 @@ Wanderlust is a full-stack travel listing application where users can explore tr
 
 ## 🚀 Features
 
-- 🧭 Browse all travel listings
-- ➕ Create, update, and delete listings
-- 💬 Add and delete reviews with star ratings
-- 🗺️ View detailed destination info
-- 🖼️ Upload and display images using Cloudinary
-- 🗺️ Interactive maps with Mapbox integration
-- 🔐 Login/Signup system with Passport.js
-- 🛡️ Authorization for listings and reviews using custom middleware
-- 👤 Ownership-based access control
-- 🛡️ Route protection with custom middleware
-- ⚙️ Centralized error handling
-- 📱 Responsive front-end using Bootstrap
+- 🧭 Browse all travel listings  
+- 🔍 Search listings by keyword  
+- ⚙️ Filter listings with advanced options  
+- 🏷️ Toggle tax inclusion for pricing  
+- ➕ Create, update, and delete listings  
+- 💬 Add and delete reviews with star ratings  
+- 🗺️ View detailed destination info  
+- 🖼️ Upload and display images using Cloudinary  
+- 🗺️ Interactive maps with Mapbox integration  
+- 🔐 Login/Signup system with Passport.js  
+- 🛡️ Authorization for listings and reviews using custom middleware  
+- 👤 Ownership-based access control  
+- 🛡️ Route protection with custom middleware  
+- ⚙️ Centralized error handling  
+- 📱 Responsive front-end using Bootstrap 
 
 ---
 
