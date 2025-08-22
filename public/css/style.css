@@ -158,24 +158,25 @@ body {
 
 /* search-bar */
 .search-inp {
-    border-radius: 25px;
+    border-radius: 25px 0 0 25px;
     padding: 0.5rem 10rem;
     font-size: 0.85rem;
+    border: 1px solid #ced4da;
 }
 
-.search-btn {
+.btn-search {
     background-color: #fe424d;
     color: #fff;
-    border-radius: 25px;
-    padding: 0 1rem 0 1rem;
+    border-radius: 0 25px 25px 0;
+    padding: 0 1rem;
 }
 
-.search-btn i {
+.btn-search i {
     display: inline;
     margin-right: 0.5rem;
 }
 
-.search-btn:hover {
+.btn-search:hover {
     background-color: #fe424d;
     color: #fff;
 }
