@@ -1,39 +1,40 @@
-# 🌍 Wanderlust – Travel Listing Web App
+# 🌍 Wanderstay – Travel Listing Web App
 
-Wanderlust is a full-stack travel listing application where users can explore travel destinations, view detailed pages, and manage listings. It is built using **Node.js**, **Express**, **MongoDB**, and **EJS** templating engine.
+Wanderstay is a full-stack travel listing application where users can explore travel destinations, view detailed pages, and manage listings. It is built using **Node.js**, **Express**, **MongoDB**, and **EJS** templating engine.
 
 ---
 
 ## 🚀 Features
 
 - 🧭 Browse all travel listings  
-- 🔍 Search listings by keyword  
-- ⚙️ Filter listings with advanced options  
-- 🏷️ Toggle tax inclusion for pricing  
-- ➕ Create, update, and delete listings  
+- ➕ Create, update, and delete listings
+- 🔍 Search listings by keyword (title or location)  
+- ⚙️ Filter listings with  horizontal scroll navigation    
 - 💬 Add and delete reviews with star ratings  
 - 🗺️ View detailed destination info  
 - 🖼️ Upload and display images using Cloudinary  
-- 🗺️ Interactive maps with Mapbox integration  
+- 🗺️ Interactive maps with Mapbox integration 
 - 🔐 Login/Signup system with Passport.js  
 - 🛡️ Authorization for listings and reviews using custom middleware  
 - 👤 Ownership-based access control  
 - 🛡️ Route protection with custom middleware  
 - ⚙️ Centralized error handling  
 - 📱 Responsive front-end using Bootstrap 
+- 🌐 Favicon & PWA manifest support for cross-device compatibility 
 
 ---
 
 ## 🛠️ Tech Stack
 
-- **Frontend**: EJS, Bootstrap, HTML, CSS, JavaScript
-- **Backend**: Node.js, Express.js
-- **Database**: MongoDB, Mongoose
-- **Templating**: EJS
-- **Authentication**: Passport, Passport-Local, Passport-Local-Mongoose
-- **Utilities**: MVC Architecture, Express Router with `router.route()`, Custom Middleware, Session Handling, Flash Messages
-- **File Upload & Hosting**: Multer, Cloudinary, Cloudinary Storage
-- **Maps & Geocoding**: Mapbox GL JS, Mapbox Geocoding API
+- **Frontend**: EJS, Bootstrap, HTML, CSS, JavaScript  
+- **Backend**: Node.js, Express.js  
+- **Database**: MongoDB, Mongoose  
+- **Templating**: EJS  
+- **Authentication**: Passport, Passport-Local, Passport-Local-Mongoose  
+- **Utilities**: MVC Architecture, Express Router with `router.route()`, Custom Middleware, Session Handling, Flash Messages  
+- **File Upload & Hosting**: Multer, Cloudinary, Cloudinary Storage  
+- **Maps & Geocoding**: Mapbox GL JS, Mapbox Geocoding API  
+- **PWA / Icons**: Favicon set & `site.webmanifest`
 
 ---
 
