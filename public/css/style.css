@@ -154,6 +154,14 @@ form .form-control {
     padding: 0;
 }
 
+.review-card{
+    padding: 1rem !important;
+}
+
+.del-btn{
+    margin-left: 1rem !important;
+}
+
 #map {
     height: 400px;
     width: 100%;
