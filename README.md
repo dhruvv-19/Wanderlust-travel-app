@@ -31,7 +31,8 @@ Wanderstay is a full-stack travel listing application where users can explore tr
 - **Database**: MongoDB, Mongoose  
 - **Templating**: EJS  
 - **Authentication**: Passport, Passport-Local, Passport-Local-Mongoose  
-- **Utilities**: MVC Architecture, Express Router with `router.route()`, Custom Middleware, Session Handling, Flash Messages  
+- **Session Management**: `express-session` with **MongoDB store via connect-mongo**
+- **Utilities**: MVC Architecture, Express Router with `router.route()`, Custom Middleware, Flash Messages  
 - **File Upload & Hosting**: Multer, Cloudinary, Cloudinary Storage  
 - **Maps & Geocoding**: Mapbox GL JS, Mapbox Geocoding API  
 - **PWA / Icons**: Favicon set & `site.webmanifest`
@@ -45,7 +46,7 @@ User authentication is implemented using:
 - `passport` – for managing authentication strategies
 - `passport-local` – for username/password-based login
 - `passport-local-mongoose` – to simplify integration with Mongoose
-- Session-based login with persistent sessions
+- `express-session` with **MongoDB-backed session storage (`connect-mongo`)** for persistent sessions 
 - Input validation, flash messaging, and centralized error handling
 
 Registered users can:
